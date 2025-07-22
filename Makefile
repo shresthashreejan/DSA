@@ -8,7 +8,7 @@ ifeq ($(OS), linux)
 	TARGET = $(BUILD)/dsa
 endif
 
-OBJ = $(BUILD)/main.o $(BUILD)/bubble_sort.o $(BUILD)/constants.o
+OBJ = $(BUILD)/main.o $(BUILD)/constants.o $(BUILD)/bubble_sort.o $(BUILD)/insertion_sort.o
 
 $(TARGET): $(OBJ)
 	$(CC) $(OBJ) -o $(TARGET)
@@ -17,11 +17,14 @@ $(TARGET): $(OBJ)
 $(BUILD)/main.o: src/main.c
 	$(CC) $(CFLAGS) -c src/main.c -o ${BUILD}/main.o
 
+$(BUILD)/constants.o: src/constants.c
+	$(CC) $(CFLAGS) -c src/constants.c -o ${BUILD}/constants.o
+
 $(BUILD)/bubble_sort.o: src/bubble_sort.c
 	$(CC) $(CFLAGS) -c src/bubble_sort.c -o ${BUILD}/bubble_sort.o
 
-$(BUILD)/constants.o: src/constants.c
-	$(CC) $(CFLAGS) -c src/constants.c -o ${BUILD}/constants.o
+$(BUILD)/insertion_sort.o: src/insertion_sort.c
+	$(CC) $(CFLAGS) -c src/insertion_sort.c -o ${BUILD}/insertion_sort.o
 
 clean_objects:
 	rm -f ${OBJ}
