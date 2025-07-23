@@ -3,6 +3,7 @@
 #include <time.h>
 
 #include "constants.h"
+#include "insertion_sort.h"
 
 void InsertionSort(void)
 {

@@ -3,6 +3,7 @@
 #include <time.h>
 
 #include "constants.h"
+#include "selection_sort.h"
 
 void SelectionSort(void)
 {
