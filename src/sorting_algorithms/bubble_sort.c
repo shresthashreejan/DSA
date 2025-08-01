@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <time.h>
-
-#include "bubble_sort.h"
+#include "sorting_algorithms/bubble_sort.h"
 #include "constants.h"
 
 void BubbleSort(void)
