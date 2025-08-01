@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <time.h>
 
+#include "bubble_sort.h"
 #include "constants.h"
-#include "selection_sort.h"
 
-void SelectionSort(void)
+void BubbleSort(void)
 {
     int arr[DATA_SIZE];
     for (int i = 0; i < DATA_SIZE; ++i) arr[i] = DATA[i];
@@ -12,21 +12,21 @@ void SelectionSort(void)
 
     for (int i = 0; i < DATA_SIZE; ++i)
     {
-        int min = i;
-        for (int j = i + 1; j < DATA_SIZE; ++j)
+        for (int j = 0; j < DATA_SIZE - i; ++j)
         {
-            if (arr[min] > arr[j]) min = j;
+            if (arr[j] > arr[j + 1])
+            {
+                int temp = arr[j + 1];
+                arr[j + 1] = arr[j];
+                arr[j] = temp;
+            }
         }
-
-        int temp = arr[i];
-        arr[i] = arr[min];
-        arr[min] = temp;
     }
 
     clock_t end = clock();
     double executionTime = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("SELECTION SORT\n");
+    printf("BUBBLE SORT\n");
     for (int i = 0; i < DATA_SIZE; ++i) printf("%d ", arr[i]);
     printf("\nExecution Time: %.10f\n", executionTime);
-    printf("Time complexity: O(n^2)\n\n");
+    printf("Time complexity: O(n^2)\n");
 }
