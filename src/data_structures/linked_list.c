@@ -69,4 +69,5 @@ void LinkedList(void)
     InsertNode(&head, 10, INSERT_BEGIN);
     DisplayNodes(head);
     DeallocateMemory(head);
+    printf("\n");
 }
