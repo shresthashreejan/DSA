@@ -8,7 +8,7 @@ ifeq ($(OS), linux)
 	TARGET = $(BUILD)/dsa
 endif
 
-OBJ = $(BUILD)/main.o $(BUILD)/constants.o $(BUILD)/data_structures.o $(BUILD)/linked_list.o $(BUILD)/stack.o $(BUILD)/sorting_algorithms.o $(BUILD)/bubble_sort.o
+OBJ = $(BUILD)/main.o $(BUILD)/constants.o $(BUILD)/data_structures.o $(BUILD)/stack.o $(BUILD)/queue.o $(BUILD)/linked_list.o $(BUILD)/sorting_algorithms.o $(BUILD)/bubble_sort.o
 
 $(TARGET): $(OBJ)
 	$(CC) $(OBJ) -o $(TARGET)
@@ -23,11 +23,14 @@ $(BUILD)/constants.o: src/constants.c
 $(BUILD)/data_structures.o: src/data_structures/data_structures.c
 	$(CC) $(CFLAGS) -c src/data_structures/data_structures.c -o ${BUILD}/data_structures.o
 
-$(BUILD)/linked_list.o: src/data_structures/linked_list.c
-	$(CC) $(CFLAGS) -c src/data_structures/linked_list.c -o ${BUILD}/linked_list.o
-
 $(BUILD)/stack.o: src/data_structures/stack.c
 	$(CC) $(CFLAGS) -c src/data_structures/stack.c -o ${BUILD}/stack.o
+
+$(BUILD)/queue.o: src/data_structures/queue.c
+	$(CC) $(CFLAGS) -c src/data_structures/queue.c -o ${BUILD}/queue.o
+
+$(BUILD)/linked_list.o: src/data_structures/linked_list.c
+	$(CC) $(CFLAGS) -c src/data_structures/linked_list.c -o ${BUILD}/linked_list.o
 
 $(BUILD)/sorting_algorithms.o: src/sorting_algorithms/sorting_algorithms.c
 	$(CC) $(CFLAGS) -c src/sorting_algorithms/sorting_algorithms.c -o ${BUILD}/sorting_algorithms.o
