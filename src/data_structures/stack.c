@@ -1,9 +1,9 @@
 #include "data_structures/stack.h"
 
-int arr[MAX];
-int top = -1;
+static int arr[MAX];
+static int top = -1;
 
-void push(int n)
+void Push(int n)
 {
     if (top >= MAX - 1)
     {
@@ -14,7 +14,7 @@ void push(int n)
     arr[++top] = n;
 }
 
-int pop(void)
+int Pop(void)
 {
     if (top < 0)
     {
@@ -29,7 +29,7 @@ int pop(void)
     return val;
 }
 
-void printStack(void)
+void PrintStack(void)
 {
     printf("Stack: ");
     for (int i = 0; i < MAX; ++i) printf("%d ", arr[i]);
@@ -38,10 +38,10 @@ void printStack(void)
 void Stack(void)
 {
     printf("STACK\n");
-    push(1);
-    push(2);
-    push(3);
-    printf("Popped value: %d\n", pop());
-    printStack();
-    printf("\n");
+    Push(1);
+    Push(2);
+    Push(3);
+    printf("Popped value: %d\n", Pop());
+    PrintStack();
+    printf("\n\n");
 }

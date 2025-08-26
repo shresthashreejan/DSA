@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-#define MAX 10
+#include "constants.h"
 
 void push(int n);
 int pop(void);
