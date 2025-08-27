@@ -1,6 +1,7 @@
 #include "data_structures/queue.h"
 
 static int arr[MAX];
+static int head = 0;
 static int tail = -1;
 
 void Enqueue(int n)
@@ -21,19 +22,11 @@ int Dequeue(void)
         return -1;
     }
 
-    int returnValue = arr[0];
+    int returnValue = arr[head];
 
-    for (int i = 1; i <= MAX; ++i)
-    {
-        if (i <= tail)
-        {
-            arr[i - 1] = arr[i];
-        }
-        else
-        {
-            arr[i] = 0;
-        }
-    }
+    for (int i = 1; i <= tail; ++i) arr[i - 1] = arr[i];
+    arr[tail] = 0;
+    --tail;
 
     return returnValue;
 }
